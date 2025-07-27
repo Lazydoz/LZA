@@ -14,32 +14,19 @@
 </head>
 
 <style>
-    .header{
-        background: #fbeede;
-    }
-
-    .banner{
-        width: 100%;
-        height: 60vh;
-        object-fit: cover;
-    }
-
     .nav-link{
         font-size: 20px;
-    }
-
-    .btn-bg{
-        background: #23334a;
     }
 </style>
 
 <body>
     <!--HEADER-->
-    <header class="header">
+    <header >
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
-                    <img src="./source/webicon.png" alt="icon" style="height: 5rem;width: 5rem;">
+
+                <a class="navbar-brand" target="frame" href="./pages/landing.html">
+                    <img src="./source/LZlogo.png" alt="icon" style="height: 5rem;width: 5rem;">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -47,62 +34,49 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul class="navbar-nav me-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link mx-1" href="#">Show Room</a>
+                            <a class="nav-link mx-1" target="frame" href="./pages/landing.html">Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link mx-1" href="#">Custom Shop</a>
+                            <a class="nav-link mx-1" target="frame" href="./pages/showroom.html">Show Room</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link mx-1" href="#">Avatar Sample</a>
+                            <a class="nav-link mx-1" target="frame" href="./pages/shop.html">Custom Shop</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link mx-1" href="#">News</a>
+                            <a class="nav-link mx-1" target="frame" href="./pages/shop.html">Gift</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-1" href="#">Gift</a>
-                        </li>
+
                     </ul>
+
                 </div>
+
             </nav>
         </div>
     </header>
     
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <img src="https://wallpaperaccess.com/full/2109679.jpg" class="d-block banner" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="https://wallpaperaccess.com/full/2109679.jpg" class="d-block banner" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="https://wallpaperaccess.com/full/2109679.jpg" class="d-block banner" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <!--MAIN-->
+    <main style="min-height: 150vh;">
+
+        <iframe id="frame" name="frame" src="./pages/landing.html" frameborder="0" style="height: 100vh; width: 100%;"></iframe>
+
+    </main>
+    
+    <!--FOOTER-->
+    <footer class="py-4">
+
+        <div class="container">
+
+            <p class="text-center">&copy; 2025 LAZYDO. All rights reserved.</p>
+
         </div>
 
-    <!--MAIN-->
-    <iframe src="./pages/home.html" frameborder="0" style="height: 100vh; width: 100%;"></iframe>
-    <!--FOOTER-->
-    <footer class="bg-light py-4">
-        <div class="container">
-            <p class="text-center">&copy; 2025 LAZYDO. All rights reserved.</p>
-        </div>
     </footer>
     
     <!--bootstrap js-->
