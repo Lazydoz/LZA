@@ -1,2 +1,0 @@
-# lza
-Avatar Customize Shop
