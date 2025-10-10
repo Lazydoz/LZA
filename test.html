@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Google Sheets</title>
+</head>
+<body>
+  <h1>Test Google Sheets</h1>
+
+  <script>
+    // Hàm callback JSONP
+    function handleData(data) {
+      console.log("Dữ liệu mới từ Google Sheets:", data);
+      // hiển thị ra trang để dễ kiểm tra
+      document.body.innerHTML += "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+    }
+  </script>
+
+  <!-- Gọi Apps Script JSONP -->
+  <script src="https://script.google.com/macros/s/AKfycbxHcScV1xSOVetZH0eUud5wfHGuKl011qv-7kXgYLoL/exec?callback=handleData"></script>
+</body>
+</html>
