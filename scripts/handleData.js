@@ -11,8 +11,3 @@ function handleData(data){
         container.appendChild(card);
     }
 }
-
-const sheetname = 'AVATAR';
-const script = document.createElement('script');
-script.src = `https://script.google.com/macros/s/AKfycbxHcScV1xSOVetZH0eUud5wfHGuKl011qv-7kXgYLoL/exec?callback=handleData&sheetname=${sheetname}`;
-document.body.appendChild(script);
