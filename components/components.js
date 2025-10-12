@@ -1,6 +1,7 @@
 const header = './components/header.html';
 const footer = './components/footer.html';
-const card = './components/card.html';
+
+import { Card } from './card.js'; 
 
 /* BASE COMPONENT */
 class Component extends HTMLElement {
@@ -34,12 +35,3 @@ class Footer extends Component {
     }
 }
 customElements.define('m-footer', Footer);
-
-/* ---CARD */
-class Card extends Component {
-    constructor() {
-        super();
-        this.file = card;
-    }
-}
-customElements.define('m-card', Card);
