@@ -1,5 +1,5 @@
 .card {
-    width: 220px;
+    width: 250px;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -8,10 +8,17 @@
     align-items: center;
     padding: 24px 16px;
     margin: 16px;
+
+    scale: 1;
+    transition: scale 0.5s;
+}
+.card:hover{
+    scale: 1.1;
+    transition: scale 0.5s;
 }
 .card-logo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
