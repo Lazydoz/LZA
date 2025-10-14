@@ -5,32 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyShop!</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style/card.css">
-
 </head>
 <body>
     <m-header></m-header>
-    <div class="container">
-        <m-card 
-        name="Shinano" 
-        image="https://booth.pximg.net/ed52788c-0b3b-4e38-9ded-1e5797daf0ef/i/6106863/07bd77df-a8ee-4244-8c4e-16cf7cb584bb_base_resized.jpg"
-        link="https://booth.pm/ja/items/6106863">
-        </m-card>
-    </div>
+    <m-card-container></m-card-container>
     <m-footer></m-footer>
-    
-    
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    <script type="module" src="./components/components.js" defer></script>
-    <!-- HANDLE DATA -->
+    <script type="module" src="./components/components.js"></script>
+    <!---->
     <script src="./scripts/handleData.js"></script>
-    <!-- JSONP -->
-    <script src="https://script.google.com/macros/s/AKfycbxHcScV1xSOVetZH0eUud5wfHGuKl011qv-7kXgYLoL/exec?callback=handleData"></script>
+    <script src="./scripts/loadData.js"></script>
+    <script>loadData('AVATAR');</script>
 </body>
 </html>
