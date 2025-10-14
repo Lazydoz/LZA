@@ -1,7 +1,103 @@
-<header>
-    <div class="bg-dark">
-        <div class="container text-white py-3">
-            <h1>LazyShop!</h1>
+<header> <!--class="sticky-top" Làm header dính ở đầu trang -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <!-- Logo và Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../public/logo.png" alt="LazyShop Logo" class="logo me-3" />
+                <h1 class="display-2 m-0 fw-bold text-primary">LAZYSHOP</h1> <!-- Giảm kích thước từ h1 display-2 xuống h2 để phù hợp hơn -->
+            </a>
+            
+            <!-- Thanh tìm kiếm và Dropdown -->
+            <div class="d-flex align-items-center">
+                <form class="d-flex mx-3"> <!-- Thêm thanh tìm kiếm đơn giản -->
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Tìm</button>
+                </form>
+                
+                <div class="dropdown">
+                    <button class="btn btn-lg btn-primary dropdown-toggle px-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Danh mục
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-user me-2"></i> AVATAR</a></li>
+                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-box me-2"></i> ASSETS</a></li>
+                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-image me-2"></i> TEXTURE</a></li>
+                        <!-- Thêm một vài item để làm phong phú hơn -->
+                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-tags me-2"></i> GIẢM GIÁ</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
+
+<style>
+    /* Cải tiến logo: Thêm hiệu ứng hover mượt hơn và làm cho nó tròn hơn */
+    .logo {
+        border-radius: 25px; 
+        width: 100px; 
+        height: auto;
+        object-fit: cover;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-in-out; /* Tăng thời gian transition cho hiệu ứng mượt */
+    }
+    .logo:hover {
+        transform: scale(1.1) rotate(-5deg); /* Tăng scale và góc xoay nhẹ */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Tăng độ sâu shadow */
+    }
+    
+    /* Cải tiến navbar-brand: Thêm màu gradient cho text để nổi bật */
+    .navbar-brand h2 {
+        font-size: 1.8rem; /* Điều chỉnh kích thước font để phù hợp */
+        background: linear-gradient(45deg, #007bff, #00c6ff); /* Gradient màu cho text */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1.5px; /* Tăng khoảng cách chữ để hiện đại hơn */
+        text-shadow: 0 2px 8px rgba(0,123,255,0.12); /* Giữ shadow nhưng nhẹ hơn */
+    }
+    
+    /* Cải tiến dropdown: Làm cho menu dropdown đẹp hơn với border-radius và màu hover gradient */
+    .dropdown-menu {
+        min-width: 220px; /* Tăng kích thước để dễ đọc hơn */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Tăng độ sâu shadow */
+        border-radius: 16px; /* Làm bo tròn hơn */
+        margin-top: 12px; /* Tăng khoảng cách từ button */
+        background-color: #ffffff; /* Giữ trắng nhưng thêm gradient cho items hover */
+    }
+    .dropdown-item {
+        font-size: 1.1rem;
+        padding: 12px 24px; /* Tăng padding để thoải mái hơn */
+        transition: all 0.25s ease; /* Thêm transition cho tất cả các thuộc tính */
+        display: flex; /* Để căn chỉnh icon và text */
+        align-items: center;
+    }
+    .dropdown-item:hover {
+        background: linear-gradient(90deg, #007bff, #00c6ff); /* Gradient màu hover */
+        color: #fff;
+        border-radius: 8px; /* Bo tròn item khi hover */
+    }
+    
+    /* Cải tiến thanh tìm kiếm */
+    .form-control, .btn-outline-primary {
+        border-radius: 25px; /* Làm bo tròn thanh tìm kiếm */
+        transition: box-shadow 0.3s;
+    }
+    .form-control:focus, .btn-outline-primary:hover {
+        box-shadow: 0 0 10px rgba(0,123,255,0.25); /* Hiệu ứng glow khi focus hoặc hover */
+    }
+    
+    /* Thêm animation cho toàn bộ header khi tải trang */
+    header {
+        animation: fadeInDown 0.5s ease-in;
+    }
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
