@@ -1,10 +1,68 @@
 <div class="container">
+
+    <div class="dropdown text-center my-4">
+        <button class="btn btn-lg btn-primary dropdown-toggle px-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Danh mục
+        </button>
+        <ul class="dropdown-menu animate__animated animate__fadeIn" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-user me-2"></i> AVATAR</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-box me-2"></i> ASSETS</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-image me-2"></i> TEXTURE</a></li>
+            <!-- Thêm một vài item để làm phong phú hơn -->
+            <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-tags me-2"></i> GIẢM GIÁ</a></li>
+        </ul>
+    </div>
+
+
+        <div class="search-bar-wrapper d-flex align-items-center justify-content-center my-3">
+            <form class="search-bar d-flex align-items-center shadow-sm" autocomplete="off">
+                <span class="search-icon px-3 text-primary"><i class="fas fa-search"></i></span>
+                <input class="form-control border-0 bg-white" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                <button class="btn btn-primary rounded-end-pill px-4 ms-2" type="submit">Tìm</button>
+            </form>
+        </div>
+
     <div class="card-container">
 
     </div>
 </div>
 
 <style>
+    .search-bar-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .search-bar {
+        background: #fff;
+        border-radius: 2rem;
+        overflow: hidden;
+        min-width: 320px;
+        max-width: 480px;
+        width: 100%;
+        border: 1.5px solid #e3e6ee;
+        transition: box-shadow 0.18s;
+    }
+    .search-bar:focus-within {
+        box-shadow: 0 2px 12px rgba(0,123,255,0.10);
+        border-color: #007bff;
+    }
+    .search-bar input.form-control {
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        font-size: 1.1rem;
+        padding-left: 0;
+    }
+    .search-bar input.form-control:focus {
+        box-shadow: none;
+        background: #f8faff;
+    }
+    .search-icon {
+        font-size: 1.2rem;
+        opacity: 0.7;
+    }
     .card-container {
         display: flex;
         flex-wrap: wrap;
