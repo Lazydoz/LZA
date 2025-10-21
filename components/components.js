@@ -1,6 +1,7 @@
 const header = './components/header.html';
 const footer = './components/footer.html';
 const cardContainer = './components/card_container.html';
+const modal = './components/modal.html';
 
 import { Card } from './card.js'; 
 
@@ -45,3 +46,12 @@ class CardContainer extends Component {
     }
 }
 customElements.define('m-card-container', CardContainer);
+
+/* ---MODAL */
+class Modal extends Component {
+    constructor() {
+        super();
+        this.file = modal;
+    }
+}
+customElements.define('m-modal', Modal);

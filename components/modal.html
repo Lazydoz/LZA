@@ -1,0 +1,125 @@
+<div id="card-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-body">
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --modal-bg: rgba(10, 15, 25, 0.6);
+    --modal-radius: 14px;
+    --modal-max-width: 680px;
+    --modal-padding: 20px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0; /* shorthand for top/right/bottom/left */
+    background-color: var(--modal-bg);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: opacity 220ms ease, visibility 220ms ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* when shown (use inline style display:block + JS sets display) */
+  .modal[style] {
+    /* this targets when JS sets style.display = 'block' */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    border-radius: var(--modal-radius);
+    padding: var(--modal-padding);
+    width: 100%;
+    max-width: var(--modal-max-width);
+    box-shadow: 0 12px 40px rgba(2,6,23,0.35);
+    transform: translateY(8px) scale(0.995);
+    transition: transform 200ms cubic-bezier(.2,.9,.3,1), opacity 180ms;
+    opacity: 0;
+  }
+
+  /* Reveal content when modal visible */
+  .modal[style] .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  
+  .modal-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+
+  .close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 22px;
+    line-height: 1;
+    color: #333;
+    background: rgba(255,255,255,0.85);
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(2,6,23,0.08);
+    transition: transform 120ms, background 120ms;
+  }
+  .close:hover { transform: scale(1.06); background: #fff; }
+
+  /* Responsive tweak */
+  @media (max-width: 600px) {
+    .modal-content { padding: 14px; max-width: 92%; }
+    .close { right: 8px; top: 6px; width: 32px; height: 32px; }
+  }
+
+  .modal-content-wrapper {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .modal-content-wrapper img {
+    width: 320px;
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .modal-info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.98rem;
+    color: #222;
+  }
+
+  .modal-info .meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    .modal-content-wrapper { flex-direction: column; }
+    .modal-content-wrapper img { width: 100%; max-width: 100%; }
+  }
+</style>

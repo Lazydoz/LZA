@@ -21,14 +21,40 @@ export class Card extends HTMLElement {
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">${name}</h2>
-                    <a href="${link}" class="btn card-detail" target="_blank">Detail</a>
+                    <button class="btn card-detail">Detail</button>
                     <!--\${downloadBtn}-->
                 </div>
             </div>
-            <style>
-                /* ...CSS giữ nguyên... */
-            </style>
         `;
+
+        this.querySelector('.card-detail').addEventListener('click', () => {
+            function showModal() {
+                const modalEl = document.querySelector('m-modal');
+                if (!modalEl) return;
+                const modal = modalEl.querySelector('#card-modal');
+                const body = modalEl.querySelector('#modal-body');
+                if (!modal || !body) {
+                    // Nếu modal chưa load xong, thử lại sau 100ms
+                    setTimeout(showModal, 100);
+                    return;
+                }
+                body.innerHTML = `
+                    <div class="modal-content-wrapper">
+                        <img src="${image}" alt="Logo" style="max-width:100%;" />
+                        <div class="modal-info">
+                            <h2>${name}</h2>
+                            <p><strong>For : </strong> </p>
+                            <p>
+                                <a href="${link}" target="_blank" class="btn btn-primary">Go to link</a>
+                                <button class="btn btn-success">Add to list</button>
+                            </p>
+                        </div>
+                    </div>
+                `;
+                modal.style.display = 'flex';
+            }
+            showModal();
+        });
     }
 }
 customElements.define('m-card', Card);
