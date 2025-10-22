@@ -45,8 +45,8 @@ export class Card extends HTMLElement {
                             <h2>${name}</h2>
                             <p><strong>For : </strong> </p>
                             <p>
-                                <a href="${link}" target="_blank" class="btn btn-primary">Go to link</a>
-                                <button class="btn btn-success">Add to list</button>
+                                <a href="${link}" target="_blank" class="btn btn-dark">Go to link</a>
+                                <button class="btn btn-dark">Add to list</button>
                             </p>
                         </div>
                     </div>
