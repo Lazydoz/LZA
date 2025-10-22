@@ -6,6 +6,7 @@ export class Card extends HTMLElement {
         const name = this.getAttribute('name') || 'Sample Card';
         const image = this.getAttribute('image') || 'https://via.placeholder.com/150';
         const link = this.getAttribute('link') || '#';
+        const for0bj = this.getAttribute('for0bj') || '';
         /*
         const download = this.getAttribute('download') || '#';
         
@@ -43,7 +44,7 @@ export class Card extends HTMLElement {
                         <img src="${image}" alt="Logo" style="max-width:100%;" />
                         <div class="modal-info">
                             <h2>${name}</h2>
-                            <p><strong>For : </strong> </p>
+                            <p><strong>For : </strong> ${for0bj}</p>
                             <p>
                                 <a href="${link}" target="_blank" class="btn btn-dark">Go to link</a>
                                 <button class="btn btn-dark">Add to list</button>
