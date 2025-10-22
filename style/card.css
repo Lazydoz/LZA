@@ -32,11 +32,33 @@
     object-fit: contain;
     border-radius: 8px;
 }
+/* Ensure content area centers elements and handles long titles */
+.card-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+}
 .card-title {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 12px 0;
     text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+/* Clamp title to 2 lines with ellipsis on overflow */
+.card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-detail {
     padding: 8px 20px;
@@ -55,3 +77,4 @@
     display: flex;
     justify-content: center;
 }
+.card-detail { align-self: center; }
