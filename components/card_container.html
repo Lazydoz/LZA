@@ -1,76 +1,141 @@
-<div class="container">
-
+<div class="container-fluid">
+    <div style="min-height: 50vh;">
+    <!-- Category Dropdown -->
     <div class="dropdown text-center my-4">
         <button class="btn btn-lg btn-dark dropdown-toggle px-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Danh mục
+            📁 Category
         </button>
         <ul class="dropdown-menu animate__animated animate__fadeIn" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="AVATAR"><i class="fas fa-user me-2"></i> AVATAR</a></li>
-            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="ASSETS"><i class="fas fa-box me-2"></i> ASSETS</a></li>
-            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="TEXTURE"><i class="fas fa-image me-2"></i> TEXTURE</a></li>
-            <!-- Thêm một vài item để làm phong phú hơn -->
-            <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-tags me-2"></i> GIẢM GIÁ</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="AVATAR"><i class="fas fa-user me-2"></i> Avatar</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="ASSETS"><i class="fas fa-box me-2"></i> Assets</a></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="TEXTURE"><i class="fas fa-image me-2"></i> Texture</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item d-flex align-items-center" href="#" data-sheet="SALE"><i class="fas fa-tags me-2"></i> Sale</a></li>
         </ul>
     </div>
 
+    <!-- Search Bar in Container -->
+    <div class="search-bar-wrapper d-flex align-items-center justify-content-center my-4">
+        <form class="search-bar d-flex align-items-center shadow-sm" autocomplete="off">
+            <span class="search-icon px-3 text-primary"><i class="fas fa-search"></i></span>
+            <input class="form-control border-0 bg-transparent" type="search" placeholder="Search products..." id="searchBox">
+            <button class="btn btn-primary rounded-end-pill px-4 ms-2" type="submit">🔍</button>
+        </form>
+    </div>
 
-        <div class="search-bar-wrapper d-flex align-items-center justify-content-center my-3">
-            <form class="search-bar d-flex align-items-center shadow-sm" autocomplete="off">
-                <span class="search-icon px-3 text-primary"><i class="fas fa-search"></i></span>
-                <input class="form-control border-0 bg-white" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" id="searchBox">
-                <button class="btn btn-primary rounded-end-pill px-4 ms-2" type="submit">Tìm</button>
-            </form>
-        </div>
-
-    <div class="card-container">
-
+    <!-- Cards Container -->
+    <div class="card-container"></div>
     </div>
 </div>
 
 <style>
-    .search-bar-wrapper {
-        width: 100%;
+    .container-fluid {
+        padding: 20px;
+    }
+    
+    /* Dropdown Centering */
+    .dropdown {
         display: flex;
         justify-content: center;
+        width: 100%;
     }
+    
+    /* Search Bar Styling */
+    .search-bar-wrapper {
+        width: 100%;
+        padding: 16px;
+    }
+    
     .search-bar {
-        background: #fff;
+        background: var(--card-bg, #fff);
         border-radius: 2rem;
         overflow: hidden;
-        min-width: 320px;
-        max-width: 480px;
+        min-width: 280px;
+        max-width: 600px;
         width: 100%;
-        border: 1.5px solid #e3e6ee;
-        transition: box-shadow 0.18s;
+        border: 1.5px solid var(--border-color, #e3e6ee);
+        transition: all 0.3s ease;
     }
+    
     .search-bar:focus-within {
-        box-shadow: 0 2px 12px rgba(0,123,255,0.10);
-        border-color: #007bff;
+        box-shadow: 0 4px 16px rgba(13, 110, 253, 0.2);
+        border-color: var(--primary, #007bff);
+        transform: translateY(-2px);
     }
+    
     .search-bar input.form-control {
         border: none;
-        border-radius: 0;
         background: transparent;
         box-shadow: none;
-        font-size: 1.1rem;
-        padding-left: 0;
+        font-size: 1rem;
+        color: var(--text-color, #111827);
     }
+    
+    .search-bar input.form-control::placeholder {
+        color: var(--muted, #6b7280);
+    }
+    
     .search-bar input.form-control:focus {
         box-shadow: none;
-        background: #f8faff;
+        background: transparent;
     }
+    
     .search-icon {
         font-size: 1.2rem;
         opacity: 0.7;
+        transition: opacity 0.2s ease;
     }
+    
+    .search-bar:focus-within .search-icon {
+        opacity: 1;
+    }
+    
+    /* Card Container */
     .card-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 16px;
         justify-content: center;
         align-items: stretch;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        min-height: 90vh;
+        margin: 20px 0;
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    /* Responsive Grid */
+    @media (max-width: 640px) {
+        .container-fluid {
+            padding: 12px;
+        }
+        
+        .search-bar-wrapper {
+            padding: 12px;
+        }
+        
+        .search-bar {
+            min-width: 240px;
+            max-width: 100%;
+        }
+        
+        .search-bar input.form-control {
+            font-size: 0.95rem;
+        }
+        
+        .card-container {
+            gap: 12px;
+            padding: 12px 0;
+        }
+    }
+    
+    @media (min-width: 641px) and (max-width: 1024px) {
+        .search-bar {
+            max-width: 500px;
+        }
+    }
+    
+    @media (min-width: 1025px) {
+        .search-bar {
+            max-width: 600px;
+        }
     }
 </style>

@@ -1,8 +1,7 @@
 <div id="card-modal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="modal-body">
-    </div>
+    <button type="button" class="close" aria-label="Close">&times;</button>
+    <div id="modal-body"></div>
   </div>
 </div>
 
@@ -12,13 +11,21 @@
     --modal-radius: 14px;
     --modal-max-width: 680px;
     --modal-padding: 20px;
+    --modal-text: #111827;
+    --modal-bg-light: #ffffff;
+  }
+
+  html.dark-theme {
+    --modal-bg: rgba(0, 0, 0, 0.8);
+    --modal-text: #e6eef8;
+    --modal-bg-light: #0f1724;
   }
 
   .modal {
     display: none;
     position: fixed;
     z-index: 9999;
-    inset: 0; /* shorthand for top/right/bottom/left */
+    inset: 0;
     background-color: var(--modal-bg);
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
@@ -28,25 +35,26 @@
     transition: opacity 220ms ease, visibility 220ms ease;
     opacity: 0;
     visibility: hidden;
+    overflow-y: auto;
   }
 
-  /* when shown (use inline style display:block + JS sets display) */
+  /* When shown */
   .modal[style] {
-    /* this targets when JS sets style.display = 'block' */
     opacity: 1;
     visibility: visible;
   }
 
   .modal-content {
-    background-color: #fff;
+    background-color: var(--modal-bg-light);
     border-radius: var(--modal-radius);
     padding: var(--modal-padding);
     width: 100%;
     max-width: var(--modal-max-width);
-    box-shadow: 0 12px 40px rgba(2,6,23,0.35);
+    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.35);
     transform: translateY(8px) scale(0.995);
     transition: transform 200ms cubic-bezier(.2,.9,.3,1), opacity 180ms;
     opacity: 0;
+    position: relative;
   }
 
   /* Reveal content when modal visible */
@@ -54,41 +62,56 @@
     transform: translateY(0) scale(1);
     opacity: 1;
   }
-  
-  .modal-body img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 12px 0;
-    border-radius: 8px;
-  }
 
+  /* Close button */
   .close {
     position: absolute;
     right: 12px;
     top: 10px;
     font-size: 22px;
     line-height: 1;
-    color: #333;
-    background: rgba(255,255,255,0.85);
-    border-radius: 999px;
+    color: var(--modal-text);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
     width: 36px;
     height: 36px;
-    display: inline-flex;
+    padding: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(2,6,23,0.08);
-    transition: transform 120ms, background 120ms;
-  }
-  .close:hover { transform: scale(1.06); background: #fff; }
-
-  /* Responsive tweak */
-  @media (max-width: 600px) {
-    .modal-content { padding: 14px; max-width: 92%; }
-    .close { right: 8px; top: 6px; width: 32px; height: 32px; }
+    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.08);
+    transition: all 120ms ease;
   }
 
+  html.dark-theme .close {
+    background: rgba(100, 116, 139, 0.8);
+    color: white;
+  }
+
+  .close:hover {
+    transform: scale(1.06);
+    background: #fff;
+  }
+
+  .close:active {
+    transform: scale(0.95);
+  }
+
+  /* Modal body content */
+  #modal-body {
+    color: var(--modal-text);
+  }
+
+  #modal-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  /* Modal content wrapper */
   .modal-content-wrapper {
     display: flex;
     gap: 18px;
@@ -109,21 +132,87 @@
     flex-direction: column;
     gap: 12px;
     font-size: 0.98rem;
-    color: #222;
+    color: var(--modal-text);
   }
 
-  .modal-info .meta {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  .modal-info h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--modal-text);
   }
 
+  .modal-info p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .modal-info strong {
+    color: var(--modal-text);
+  }
+
+  .modal-info a,
+  .modal-info button {
+    align-self: flex-start;
+  }
+
+  /* Responsive design */
   @media (max-width: 720px) {
-    .modal-content-wrapper { flex-direction: column; }
-    .modal-content-wrapper img { width: 100%; max-width: 100%; }
+    .modal {
+      padding: 16px;
+    }
+
+    .modal-content {
+      padding: 16px;
+      max-width: 95%;
+    }
+
+    .close {
+      right: 8px;
+      top: 8px;
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
+    }
+
+    .modal-content-wrapper {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-content-wrapper img {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .modal-info {
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .modal-info h2 {
+      font-size: 1.3rem;
+    }
   }
-  .btn-efefde{
-    background-color: #efefde;
-    color: #000;
+
+  /* Utility classes */
+  .btn {
+    transition: all 0.2s ease;
+  }
+
+  .btn-dark {
+    background-color: #2d3436;
+    color: white;
+    border: none;
+  }
+
+  html.dark-theme .btn-dark {
+    background-color: #1e293b;
+  }
+
+  .btn-dark:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 </style>
